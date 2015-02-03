@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
+
+    <title>桔子生物解码器</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/bootstrap332/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="static/css/dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="static/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <a class="navbar-brand" href="#">
+          <img alt="Brand" src="static/images/logox1.png" style="float:left;margin-left:-4px;margin-top:-12px;padding:4px;height:40px">&nbsp;桔子生物&nbsp;解码器
+          </a>
+
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="report.html">报告</a></li>
+            <li><a href="about.html">关于</a></li>
+            <li><a href="https://github.com/juzishengwu/decoder">开放代码</a></li>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">SNP<span class="sr-only">(current)</ span></a></li>
+            <li><a href="#">疾病</a></li>
+            <li><a href="#">药物</a></li>
+            <li><a href="#">祖源</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">SNP</h1>
+          <p><a href="report.html">English Version</a></p>
+          <br/>
+          <div class="table-responsive">
+            <table class="table table-striped" id="report_table">
+              <thead>
+                <tr>
+                  <th class="col-md-1">RsID</th>
+                  <th class="col-md-1">基因型</th>
+                  <th class="col-md-1">重要性</th>
+                  <th class="col-md-1">影响</th>
+                  <th class="col-md-1">染色体</th>
+                  <th class="col-md-1">位置</th>
+                  <th class="col-md-1">相关基因</th>
+                  <th class="col-md-3">说明</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for g in matched %}
+                    {% if g.repute == "Good" %}
+                    <tr class="success">
+                    {% else %}
+                    <tr>
+                    {% endif %}
+
+                      <td><a href="http://www.snpedia.com/index.php/Rs{{g.snp.rsid}}" target="_blank">Rs{{g.snp.rsid}}</a></td>
+                      <td>&nbsp;&nbsp;&nbsp;{{g.allele}}</td>
+                      <td>&nbsp;&nbsp;&nbsp;{{g.magnitude}}</td>
+                      <td>&nbsp;&nbsp;{{g.get_repute_display}}</td>
+                      <td>&nbsp;&nbsp;&nbsp;{{g.snp.chromosome}}</td>
+                      <td>{{g.snp.position}}</td>
+                      <td><a href="http://www.snpedia.com/index.php/{{g.gene}}"  target="_blank">{{g.snp.gene}}</a></td>
+                      <td>{{g.summary_cn}}</td>
+                    </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/bootstrap332/js/bootstrap.min.js"></script>
+    <script src="static/js/docs.min.js"></script>
+    
+    <script src="static/js/jquery.dataTables.min.js"></script>
+    <script src="static/js/dataTables.bootstrap.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="static/js/ie10-viewport-bug-workaround.js"></script>
+    
+    <!-- js for datatable -->
+    <script type="text/javascript" class="init">
+    $(document).ready(function() {
+        $('#report_table').DataTable(
+            {
+             "order": [],
+             "columnDefs": [
+                { "orderable": false, "targets": 0 },
+                { "orderable": false, "targets": 1 },
+                { "orderable": false, "targets": 5 },
+                { "orderable": false, "targets": 7 },
+              ],
+              "language": {
+                "url": "https://dn-juzishengwu.qbox.me/cn.json"},
+              "pageLength": 100}
+        );
+    } );
+    </script>
+  </body>
+</html>

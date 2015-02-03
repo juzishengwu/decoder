@@ -1,0 +1,12 @@
+.DS_Store
+*.pyc
+*.pyo
+*.pid
+*.swp
+*.db
+pid
+.idea/
+log/
+db/
+temp/
+data/
