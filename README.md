@@ -17,6 +17,8 @@ Decode 23andme snp data with snpedia database
 	
 	python decoder.py -t html -i 你的23andme数据 -o 报告生成目录
 
+4. 1-3 分钟后，运行完毕。用浏览器打开报告生成目录中的report.html
+
 ## 报告Demo
 
 http://decoder.juzishengwu.com/
