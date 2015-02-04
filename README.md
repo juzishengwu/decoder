@@ -1,4 +1,4 @@
-Oragne.Decoder
+Orange.Decoder
 =======
 
 Decode 23andme snp data with snpedia database
