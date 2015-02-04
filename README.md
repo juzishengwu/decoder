@@ -12,11 +12,11 @@ Decode 23andme snp data with snpedia database
 
 ## 使用方法
 1. git clone 代码;
-2. 安装django; sudo pip install django;
+2. 安装django 1.7; sudo pip install django;
 3. cd decoder 目录:
 	
 	python decoder.py -t html -i 你的23andme数据 -o 报告生成目录
-	
+
 ## 报告Demo
 
 http://decoder.juzishengwu.com/
