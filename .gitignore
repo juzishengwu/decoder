@@ -9,3 +9,5 @@ pid
 log/
 temp/
 data/
+migrations/
+decoder.sqlite3.2015.12.31

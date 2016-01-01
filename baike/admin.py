@@ -15,5 +15,9 @@ class SnpAdmin(admin.ModelAdmin):
 class GenotypeAdmin(admin.ModelAdmin):
     pass
 
+class PhenotypeAdmin(admin.ModelAdmin):
+    list_display = ('name', 'name_cn', 'category', 'prevalence_rate2')
+    list_filter = ('category',)
 admin.site.register(Snp, SnpAdmin)
 admin.site.register(Genotype, GenotypeAdmin)
+admin.site.register(Phenotype, PhenotypeAdmin)
