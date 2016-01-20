@@ -15,7 +15,7 @@ Decode 23andme snp data with snpedia database
 2. 安装django 1.7; sudo pip install django;
 3. cd decoder 目录:
 	
-	python decoder.py -t html -i 你的23andme数据 -o 报告生成目录
+	python decode.py -t html -i 你的23andme数据 -o 报告生成目录
 
 4. 1-3 分钟后，运行完毕。用浏览器打开报告生成目录中的report.html
 
