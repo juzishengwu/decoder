@@ -25,4 +25,4 @@ http://decoder.juzishengwu.com/
 
 ## Snpedia.com 数据下载 
 
-https://dn-juzishengwu.qbox.me/snpedia.tar.gz
+http://bio2016.oss-cn-qingdao.aliyuncs.com/snpedia.tar.gz
