@@ -21,7 +21,7 @@ Decode 23andme snp data with snpedia database
 
 ## website
 
-http://juzishengwu.github.io
+http://juzishengwu.github.io/decoder
 
 ## 报告Demo
 
