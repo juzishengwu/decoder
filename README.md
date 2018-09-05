@@ -19,6 +19,10 @@ Decode 23andme snp data with snpedia database
 
 4. 1-3 分钟后，运行完毕。用浏览器打开报告生成目录中的report.html
 
+## website
+
+http://juzishengwu.github.io
+
 ## 报告Demo
 
 http://decoder.juzishengwu.com/
